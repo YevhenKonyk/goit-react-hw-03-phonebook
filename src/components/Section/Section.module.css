@@ -1,0 +1,7 @@
+.section {
+  width: 480px;
+  padding: 10px;
+  margin: 0 auto;
+  margin-bottom: 25px;
+  border: 1px solid grey;
+}

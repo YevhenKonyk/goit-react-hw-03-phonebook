@@ -1,0 +1,27 @@
+.title {
+  color: #2f3640;
+}
+
+.title::after {
+  content: '';
+  display: block;
+  background-color: tomato;
+  width: 50px;
+  height: 3px;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.listItem {
+  width: 200px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  margin-bottom: 10px;
+  padding: 5px;
+}
