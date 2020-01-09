@@ -12,14 +12,33 @@ const filterContacts = (contacts, filter) =>
 
 export default class App extends Component {
   state = {
-    contacts: [
-      { id: 'id-1', name: 'Scorpion', phone: '222-33-55' },
-      { id: 'id-2', name: 'Sub Zero', phone: '555-88-77' },
-      { id: 'id-3', name: 'Syrex', phone: '444-88-99' },
-      { id: 'id-4', name: 'Sector', phone: '888-22-44' },
-    ],
+    contacts: [],
     filter: '',
   };
+
+  componentDidMount() {
+    console.log('componentDidMount');
+    // Get from localStorage
+    const persistedContacts = localStorage.getItem('contacts');
+
+    if (persistedContacts) {
+      try {
+        const contacts = JSON.parse(persistedContacts);
+        this.setState({ contacts });
+      } catch (e) {
+        console.error(e.message);
+      }
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('componentDidUpdate');
+    const { contacts } = this.state;
+    if (prevState.contacts !== contacts) {
+      // Save to localStorage
+      localStorage.setItem('contacts', JSON.stringify(contacts));
+    }
+  }
 
   isContactInList = (contact, contacts) =>
     contacts.find(element =>
