@@ -17,7 +17,6 @@ export default class App extends Component {
   };
 
   componentDidMount() {
-    console.log('componentDidMount');
     // Get from localStorage
     const persistedContacts = localStorage.getItem('contacts');
 
@@ -32,7 +31,6 @@ export default class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('componentDidUpdate');
     const { contacts } = this.state;
     if (prevState.contacts !== contacts) {
       // Save to localStorage
